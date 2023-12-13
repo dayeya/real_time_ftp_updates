@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--https://github.com/0xInfection/Awesome-WAF#how-wafs-work-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealTimeUpdates</title>
+</head>
+<body>
+    <h1>WAF Admin</h1>
+    <div id="data-container"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('connect', function() {
+            console.log('Connected to proxy');
+        });
+
+        socket.on('disconnect', function() {
+            console.log('Disconnected from proxy');
+        });
+
+        socket.on('update_website', function(data) {
+            console.log(data)
+            // Update the website content based on the received data
+            document.getElementById('data-container').innerText = data['Attack_Update'];
+        });
+    </script>
+</body>
+</html>
