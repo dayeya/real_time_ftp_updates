@@ -31,13 +31,12 @@ type Command = str
 type Address = Tuple[IP, PORT]
 
 def display_help() -> None:
-    help = """
-        Available command:
-        \n - h: displays help message.
-        \n - ls <num> : displays num files, else displays all.
-        \n - cat <file_name>: Displays the file content.
-        \n - get <file_name | first N files>: Downloads all by using 'get *' 
-        \n - put: Opens a file dialog and uploads the file to the server.
+    help = """Available command:
+        \n- h: displays help message.
+        \n- ls <num> : displays num files, else displays all.
+        \n- cat <file_name>: Displays the file content.
+        \n- get <file_name | first N files>: Downloads all by using 'get *' 
+        \n- put: Opens a file dialog and uploads the file to the server.
     """
     print(help)
     
@@ -92,9 +91,8 @@ def upload_file(sock: socket, file: str) -> int:
     return bytes_sent
 
 def ls(sock: socket, req: FTPCommand) -> None:
-    print('Listing ./main')
     sock.send(pickle.dumps(req))
-    while (entry := sock.recv(4096).encode('utf-8')) != 'EOF':
+    while (entry := sock.recv(4096).decode('utf-8')) != 'EOF':
         print(entry)
 
 def exec_cmd(sock: socket, req: FTPCommand) -> None:
