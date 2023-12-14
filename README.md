@@ -1,6 +1,6 @@
-# RealTime FTP Updates
+# Real-Time FTP updates
 This project aims to develop a simple FTP client via CLI and a simple FTP server with an integrated UI using Flask.
-With the aim of simplifying real-time updates with Flask.
+To simplify real-time updates with Flask.
 
 # Description
 The FTP server supports the following commands:
@@ -13,4 +13,4 @@ The FTP server supports the following commands:
 The FTP server will notify the UI with real-time updates of the application's statistics using SocketIO.
 
 # Authors
-Daniel Sapojnikov 2023.
+Daniel Sapojnikov 2023, work in progress...
