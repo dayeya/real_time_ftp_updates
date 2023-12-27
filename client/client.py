@@ -96,13 +96,16 @@ def ls(sock: socket, req: FTPCommand) -> None:
         print(entry)
 
 def exec_cmd(sock: socket, req: FTPCommand) -> None:
+    """
+    Executes 'req'.
+    """
     if req.is_help():
         display_help()
         return
-    
+        
     if req.is_ls():
         ls(sock, req)
-    
+        
     if req.is_put():
         file = open_dialog()
         bytes_sent = upload_file(sock, file)
