@@ -3,7 +3,7 @@ from typing import Iterable, Pattern, Tuple
 from .errors import CommandError
 
 CMD_PATTERN = re.compile(r'\b(?:ls|cat|get|put|h)\b')
-LS_PATTERN = re.compile(r'^ls(?: (\d+))?$')
+LS_PATTERN  = re.compile(r'^ls(?: (\d+))?$')
 CAT_PATTERN = re.compile(r'^cat ([a-zA-Z0-9_.-]+)$')
 GET_PATTERN = re.compile(r'^get ([a-zA-Z0-9_.\-*]+)$')
 PUT_PATTERN = re.compile(r'^put(?: (.+))?$')
